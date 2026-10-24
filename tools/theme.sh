@@ -4,9 +4,7 @@
 # Push dynamic config.json updates and wallpapers over Wi-Fi
 # Modifies dock apps, grid density, and stats display in real-time
 
-PROJECT_ROOT="/Users/nikhilsiddhu/OpenCode/firetv-tvos"
-FIRE_TV_IP="192.168.1.41"
-FIRE_TV_PORT="5555"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")/../scripts" && pwd)/_env.sh"
 
 THEME_DIR="${PROJECT_ROOT}/themes"
 LAUNCHER_DATA="/sdcard/Android/data/com.gathin.tvhome"

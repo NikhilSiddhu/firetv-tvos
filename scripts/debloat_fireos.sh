@@ -2,7 +2,7 @@
 # ============================================================
 #  Fire TV Stick 3rd Gen - Safe Debloat Script
 #  Fire OS 7.7.1.7 (ps7717/5741)
-#  IP: 192.168.1.41   Port: 5555
+#  Port: 5555 (set FIRE_TV_IP in local.env)
 # ============================================================
 #  SAFETY MODEL
 #  - Only disables packages that are BOTH in debloat_fireos.txt
@@ -16,9 +16,7 @@
 set -uo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-FIRE_TV_IP="192.168.1.41"
-FIRE_TV_PORT="5555"
-SERIAL="${FIRE_TV_IP}:${FIRE_TV_PORT}"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_env.sh"
 
 DEBLOAT_LIST="${PROJECT_ROOT}/scripts/debloat_fireos.txt"
 BACKUP_DIR="${HOME}/.cleanyourtv"

@@ -7,6 +7,11 @@ rearrange from the remote.
 Built and tested on a **Fire TV Stick 3rd gen (AFTSSS)**, **Fire OS 7.7.1.7 (PS7717/5741)**,
 Android 9 / SDK 28, 1 GB RAM.
 
+<img src="docs/demo.gif" alt="The Fire TV booting into the Apple TV-style home, moving between tiles, opening a web tile and the settings menu" width="760">
+
+<sub>Captured on the real stick, top to bottom: the debloated system, the home screen, tile
+editing, the tile menu, web tiles and the dock. Stills in [`shots/`](shots).</sub>
+
 ---
 
 ## What this is, and what it is not
@@ -37,10 +42,14 @@ it — it is a *protected package*), so it stays installed and we route around i
 # one-time: adb
 brew install --cask android-platform-tools
 
+# tell the scripts where your TV is (local.env is gitignored)
+cp local.env.example local.env
+$EDITOR local.env                    # FIRE_TV_IP=192.168.1.x
+
 # on the TV: Settings > My Fire TV > About > press OK on the name 7x
 #            > Developer Options > ADB debugging ON
 
-adb connect 192.168.1.41:5555      # accept the prompt on the TV
+adb connect <your-tv-ip>:5555      # accept the prompt on the TV
 
 bash scripts/install_all.sh        # does everything below, in order
 ```

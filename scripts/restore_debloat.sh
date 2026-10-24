@@ -5,9 +5,7 @@
 # ============================================================
 set -uo pipefail
 
-FIRE_TV_IP="192.168.1.41"
-FIRE_TV_PORT="5555"
-SERIAL="${FIRE_TV_IP}:${FIRE_TV_PORT}"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_env.sh"
 BACKUP_DIR="${HOME}/.cleanyourtv"
 
 echo "=========================================="

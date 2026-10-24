@@ -1,9 +1,8 @@
 #!/bin/bash
 # ADB Wireless Connection Script for Fire TV Stick 3rd Gen
-# Fire OS 7.7.1.7 | IP: 192.168.1.41 | Port: 5555
+# Fire OS 7.7.1.7 | Port: 5555 (set FIRE_TV_IP in local.env)
 
-FIRE_TV_IP="192.168.1.41"
-FIRE_TV_PORT="5555"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_env.sh"
 
 echo "=========================================="
 echo "  Fire TV Stick ADB Connection"

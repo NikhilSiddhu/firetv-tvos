@@ -5,7 +5,7 @@
 - **Fire OS**: 7.7.1.7 (ps7717/5741)
 - **Fire TV Home**: 7320373.1
 - **Serial**: GEB1TX2234250489
-- **IP**: 192.168.1.41
+- **IP**: <your-tv-ip>
 - **MAC**: E8d87edd1b34
 - **Host**: Mac M5 Air
 
@@ -37,11 +37,11 @@ brew install --cask android-platform-tools
 ### Step 3: Connect via Wi-Fi ADB
 
 ```bash
-adb connect 192.168.1.41:5555
+adb connect <your-tv-ip>:5555
 ```
 
 - Approve "Allow USB debugging?" on TV screen
-- Verify: `adb devices` should show `192.168.1.41:5555 device`
+- Verify: `adb devices` should show `<your-tv-ip>:5555 device`
 
 ---
 
@@ -50,19 +50,19 @@ adb connect 192.168.1.41:5555
 ### Step 1: Run Debloat Script
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/scripts/debloat_fireos.sh
+bash scripts/debloat_fireos.sh
 ```
 
 ### Step 2: Run Backup First (Recommended)
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/scripts/backup.sh
+bash scripts/backup.sh
 ```
 
 ### Step 3: Restore if Needed
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/scripts/restore_debloat.sh
+bash scripts/restore_debloat.sh
 ```
 
 ---
@@ -72,13 +72,13 @@ bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/scripts/restore_debloat.sh
 ### Step 1: Install Launcher
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/scripts/install_launcher.sh
+bash scripts/install_launcher.sh
 ```
 
 ### Step 2: Setup Accessibility Service
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/scripts/setup_accessibility.sh
+bash scripts/setup_accessibility.sh
 ```
 
 ### Step 3: Force Home Override
@@ -92,19 +92,19 @@ The AccessibilityService intercepts window state changes from `com.amazon.tv.lau
 ### Step 1: Push Theme
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/tools/theme.sh push default
+bash tools/theme.sh push default
 ```
 
 ### Step 2: Push Custom Config
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/tools/theme.sh dynamic '{"dock_apps": [...], "grid_columns": 5}'
+bash tools/theme.sh dynamic '{"dock_apps": [...], "grid_columns": 5}'
 ```
 
 ### Step 3: Toggle Stats
 
 ```bash
-bash /Users/nikhilsiddhu/OpenCode/firetv-tvos/tools/theme.sh stats true
+bash tools/theme.sh stats true
 ```
 
 ---

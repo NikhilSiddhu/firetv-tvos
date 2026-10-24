@@ -1,9 +1,7 @@
 #!/bin/bash
 # Create a backup of all installed packages and settings before debloat
 
-PROJECT_ROOT="/Users/nikhilsiddhu/OpenCode/firetv-tvos"
-FIRE_TV_IP="192.168.1.41"
-FIRE_TV_PORT="5555"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_env.sh"
 
 BACKUP_DIR="${HOME}/.cleanyourtv_backup"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)

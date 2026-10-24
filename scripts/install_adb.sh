@@ -3,9 +3,9 @@
 # Fire TV Stick ADB Installation & Setup Script
 # Installation for Mac M5 Air
 
-PROJECT_ROOT="/Users/nikhilsiddhu/OpenCode/firetv-tvos"
-FIRE_TV_IP="192.168.1.41"
-FIRE_TV_PORT="5555"
+# This script only installs adb, so it does not need a real TV address.
+_ENV_SOFT=1
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_env.sh"
 
 echo "=== Fire TV Stick ADB Setup for tvOS Customization ==="
 echo "Device IP: $FIRE_TV_IP"

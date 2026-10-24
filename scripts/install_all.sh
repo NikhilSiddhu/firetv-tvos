@@ -13,8 +13,8 @@
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TV_IP="${TV_IP:-192.168.1.41}"
-SERIAL="${TV_IP}:5555"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_env.sh"
+TV_IP="$FIRE_TV_IP"
 DIST="$ROOT/dist"
 THEME="$ROOT/themes/appletv"
 LAUNCHER_DIR="$ROOT/../cleanyourtv/launcher"

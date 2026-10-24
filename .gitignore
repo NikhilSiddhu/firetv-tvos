@@ -15,3 +15,6 @@ local.properties
 !/dist/home-watcher.apk
 !/dist/settings-tile.apk
 !/dist/web-tiles.apk
+
+# Local device address (never commit)
+local.env
