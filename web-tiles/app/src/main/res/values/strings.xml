@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Web Tiles</string>
+    <string name="add_tile">+ Add</string>
+    <string name="edit_tile">Edit tile</string>
+    <string name="new_tile">New tile</string>
+    <string name="hint">Add a web link</string>
+    <string name="hint_text">OK on + Add to make a tile. Long-press a tile to edit or delete.</string>
+    <string name="label_name">Name</string>
+    <string name="label_url">Web address</string>
+    <string name="label_icon">Icon address (optional)</string>
+    <string name="hint_name">e.g. YouTube</string>
+    <string name="hint_url">e.g. youtube.com</string>
+    <string name="hint_icon">leave empty to use the site icon</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="need_name">Give the tile a name</string>
+    <string name="need_url">Give the tile a web address</string>
+    <string name="fetching_icon">Fetching the icon\u2026</string>
+    <string name="saved_with_icon">Saved</string>
+    <string name="saved_no_icon">Saved (no icon found)</string>
+</resources>

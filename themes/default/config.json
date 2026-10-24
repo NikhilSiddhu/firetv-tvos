@@ -1,0 +1,22 @@
+{
+  "name": "default",
+  "description": "Apple TV-style default theme",
+  "background_color": "#000000",
+  "dock_background": "rgba(0, 0, 0, 0.85)",
+  "text_color": "#FFFFFF",
+  "accent_color": "#007AFF",
+  "dock_apps": [
+    {"package": "com.netflix.ninja", "label": "Netflix"},
+    {"package": "com.amazon.primevideo", "label": "Prime Video"},
+    {"package": "com.youtube.tv", "label": "YouTube"},
+    {"package": "com.disney.disneyplus", "label": "Disney+"}
+  ],
+  "grid_columns": 5,
+  "grid_rows": 3,
+  "show_stats": false,
+  "show_clock": true,
+  "show_date": true,
+  "reduced_motion": false,
+  "tile_menu": true,
+  "app_library": true
+}

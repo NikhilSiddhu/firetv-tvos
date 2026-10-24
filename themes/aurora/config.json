@@ -1,0 +1,22 @@
+{
+  "name": "aurora",
+  "description": "Aurora glow theme",
+  "background_color": "#0a0a2e",
+  "dock_background": "rgba(10, 10, 46, 0.85)",
+  "text_color": "#FFFFFF",
+  "accent_color": "#00ff88",
+  "dock_apps": [
+    {"package": "com.netflix.ninja", "label": "Netflix"},
+    {"package": "com.amazon.primevideo", "label": "Prime Video"},
+    {"package": "com.youtube.tv", "label": "YouTube"},
+    {"package": "com.disney.disneyplus", "label": "Disney+"}
+  ],
+  "grid_columns": 6,
+  "grid_rows": 4,
+  "show_stats": true,
+  "show_clock": true,
+  "show_date": true,
+  "reduced_motion": false,
+  "tile_menu": true,
+  "app_library": true
+}

@@ -1,0 +1,17 @@
+# Build artifacts / local tooling
+.imgvenv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+.gradle/
+**/build/
+local.properties
+
+# Third-party APKs are NOT redistributed in this repo.
+# Only the APKs we build ourselves are tracked.
+/dist/*.apk
+!/dist/tvhome-launcher.apk
+!/dist/home-watcher.apk
+!/dist/settings-tile.apk
+!/dist/web-tiles.apk

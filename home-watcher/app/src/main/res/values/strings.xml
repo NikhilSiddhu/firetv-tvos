@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TV Home Watcher</string>
+    <string name="service_label">TV Home Watcher</string>
+    <string name="service_description">Keeps the Apple TV-style home screen in front instead of the Amazon launcher.</string>
+</resources>

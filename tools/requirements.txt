@@ -1,0 +1,3 @@
+# Fire TV tools requirements
+# Minimal dependencies for the tvOS customization tools
+pyserial>=3.5

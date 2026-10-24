@@ -1,0 +1,121 @@
+# ============================================================
+#  Fire TV Stick 3rd Gen (AFTSSS) - FINAL Debloat List
+#  Fire OS 7.7.1.7 (PS7717/5741) | Android 9 / SDK 28
+# ------------------------------------------------------------
+#  Base: cleanyourtv examples/amazon-fire-tv-stick-lite-2020
+#        (identical Fire OS build PS7717/5741 - authoritative)
+#  Plus: our own safe additions (marked "OURS" below)
+# ------------------------------------------------------------
+#  DELIBERATELY KEPT ON (per authoritative list):
+#   com.amazon.tv.launcher (protected, owns Home), tv.settings.*,
+#   com.amazon.venezia (Appstore), com.amazon.tv.ime,
+#   remote/Bluetooth services, OTA updates,
+#   Alexa voice search (vizzini, aria, cardinal, ivona TTS, tcomm),
+#   Prime Video (firebat, tv.support), casting (cast.sink,
+#   dialservice, awvflingreceiver, whisperplay, whisperlink),
+#   profiles (prism.android.service), tv.oobe (factory reset),
+#   screensaver, accessibility (logan), parental controls.
+#
+#  PROTECTED on this build (pm disable-user refuses - skipped safely):
+#   com.amazon.minerva.client.api, com.amazon.device.logmanager,
+#   com.amazon.device.crashmanager, com.amazon.diode,
+#   com.fireos.usagestats.proxy, com.amazon.tv.oobe,
+#   com.amazon.tv.parentalcontrols, com.amazon.device.sync*,
+#   com.amazon.securitysyncclient, com.amazon.tv.fw.metrics? (no, works)
+#  -> handled later via network-level DNS blocking.
+# ============================================================
+
+# ---------- Amazon telemetry, metrics, logs, usage reporting ----------
+com.amazon.client.metrics.api
+com.amazon.neo.minerva
+com.amazon.neo.minerva.logcat
+com.amazon.tv.fw.metrics
+com.amazon.wirelessmetrics.service
+com.amazon.perfcollection
+com.amazon.perfc
+com.amazon.dp.logger
+com.amazon.ceviche
+com.amazon.tv.developer.dataservice
+com.amazon.livedeviceservice
+com.amazon.privacypassservice
+com.amazon.wifilocker
+com.amazon.tv.acr
+
+# ---------- Ads, sponsored rows, recommendations, promos, shopping ----------
+com.amazon.kso.blackbird
+com.amazon.sneakpeek
+com.amazon.hybridadidservice
+com.amazon.media.recommendations
+com.amazon.providers.contentsupport
+com.amazon.tv.easyupgrade
+com.amazon.shoptv.client
+com.amazon.shoptv.firetv.client
+com.amazon.hedwig
+com.amazon.tv.livetv
+com.amazon.franktvinput
+com.amazon.gamehub
+com.amazon.systemnotices
+com.amazon.tv.releasenotes
+com.amazon.uxnotification
+
+# ---------- Preloaded Amazon apps and setup helpers ----------
+com.amazon.tahoe
+com.amazon.bueller.music
+com.amazon.bueller.photos
+com.amazon.cloud9
+com.amazon.tv.website_launcher
+com.amazon.tmm.tutorial
+com.amazon.storm.lightning.tutorial
+com.amazon.naatyam
+com.amazon.whisperjoin.middleware.np
+com.amazon.tv.ffsprovisioneeclient
+com.amazon.ods.kindleconnect
+com.amazon.tv.mattercohost
+
+# ---------- Alexa extras (remote mic voice search still works) ----------
+com.amazon.tv.alexaalerts
+com.amazon.tv.alexanotifications
+com.amazon.alexa.externalmediaplayer.fireos
+com.amazon.alexamediaplayer.runtime.ftv
+com.amazon.aiondec
+com.amazon.audiohome
+com.amazon.whad
+com.amazon.whasettings
+com.amazon.wha.mediabrowserservice
+com.amazon.aca
+
+# ============================================================
+#  OURS - extra safe additions
+# ============================================================
+
+# Ad deeplinking
+com.amazon.ftvads.deeplinking
+
+# Stub/dummy apps (placeholders, no function)
+com.amazon.dummy.alarmclock
+com.amazon.dummy.calendar
+com.amazon.dummy.contacts
+com.amazon.dummy.gallery
+com.amazon.dummy.music
+com.amazon.dummy.settings
+
+# Ad-heavy Amazon free video / unused preloads
+com.amazon.minitv.android.app
+com.amazon.stillwatching.activity
+com.amazon.spotify.mediabrowserservice
+
+# Regional streaming preloads
+com.onemainstream.sonyliv.android
+in.startv.hotstar
+tv.airtel.xstream.tvapp
+
+# Matter smart-home (unused)
+com.amazon.tv.matter
+
+# More nags / notices
+com.amazon.tv.notificationcenter
+com.amazon.tv.legal.notices
+com.amazon.tv.legalresources
+com.amazon.tv.csapp
+com.amazon.firetv.troubleshooting
+com.amazon.tv.releasenotes
