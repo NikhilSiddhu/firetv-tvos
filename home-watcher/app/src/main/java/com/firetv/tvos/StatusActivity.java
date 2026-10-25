@@ -45,7 +45,7 @@ public class StatusActivity extends Activity {
         boolean serviceOn = isServiceEnabled();
         boolean targetOn = isTargetInstalled();
         return "Watcher service: " + (serviceOn ? "ENABLED" : "not enabled")
-                + "\nTarget launcher (com.gathin.tvhome): " + (targetOn ? "installed" : "NOT installed")
+                + "\nTarget launcher (com.getisolated.canvasos): " + (targetOn ? "installed" : "NOT installed")
                 + "\n\nEnable with:\nsettings put secure enabled_accessibility_services "
                 + getPackageName() + "/.HomeWatcherService"
                 + "\nsettings put secure accessibility_enabled 1";

@@ -48,9 +48,9 @@ public class HomeWatcherService extends AccessibilityService {
 
     private static final String TAG = "HomeWatcher";
 
-    /** The Apple TV-style launcher (cleanyourtv reference launcher). */
-    public static final String TARGET_PACKAGE = "com.gathin.tvhome";
-    public static final String TARGET_ACTIVITY = "com.gathin.tvhome.MainActivity";
+    /** The Apple TV-style launcher (canvasOS). */
+    public static final String TARGET_PACKAGE = "com.getisolated.canvasos";
+    public static final String TARGET_ACTIVITY = "com.getisolated.canvasos.HomeActivity";
 
     /** Packages that mean "Amazon's home is taking over". */
     private static final String[] WATCHED = {
