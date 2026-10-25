@@ -13,6 +13,8 @@ local.properties
 /dist/*.apk
 !/dist/tvhome-launcher.apk
 !/dist/home-watcher.apk
+!/dist/home-watcher-canvasos.apk
+!/dist/youtube-tile-org.smarttube.stable.jpg
 !/dist/settings-tile.apk
 !/dist/web-tiles.apk
 
