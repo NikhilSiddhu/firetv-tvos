@@ -1305,7 +1305,7 @@ index beab326..b139931 100644
  
      private companion object {
 diff --git a/app/src/main/java/com/getisolated/canvasos/HomeActivity.kt b/app/src/main/java/com/getisolated/canvasos/HomeActivity.kt
-index 2c13f94..8d4c3cf 100644
+index 2c13f94..1c151e9 100644
 --- a/app/src/main/java/com/getisolated/canvasos/HomeActivity.kt
 +++ b/app/src/main/java/com/getisolated/canvasos/HomeActivity.kt
 @@ -361,7 +361,7 @@ class HomeActivity : Activity(), TileAdapter.Listener {
@@ -1643,18 +1643,20 @@ index 2c13f94..8d4c3cf 100644
              }
          }
      }
-@@ -1790,18 +1790,18 @@ class HomeActivity : Activity(), TileAdapter.Listener {
+@@ -1789,19 +1789,19 @@ class HomeActivity : Activity(), TileAdapter.Listener {
+     }
  
      private fun askAdbAuthorization() {
-         if (prefs.adbAuthorized || isFinishing) return
+-        if (prefs.adbAuthorized || isFinishing) return
 -        showSheet(Sheet(root).title("Activer l'extinction et la mémoire")
 -            .message("Le débogage local doit être autorisé une fois. Appuyez sur Commencer : le téléviseur affiche « Autoriser le débogage ? ». Cochez « Toujours autoriser », puis choisissez « Autoriser ».")
 -            .button("Commencer") { authorizeAdb() }
 -            .button("Plus tard") {})
++        if (prefs.adbAuthorized || prefs.debugPromptDismissed || isFinishing) return
 +        showSheet(Sheet(root).title("Enable Power Off and Memory")
 +            .message("Local debugging must be allowed once. Press Start: the TV shows “Allow debugging?”. Check “Always allow”, then choose “Allow”.")
 +            .button("Start") { authorizeAdb() }
-+            .button("Later") {})
++            .button("Later") { prefs.debugPromptDismissed = true })
      }
  
      fun authorizeAdb() {
@@ -2076,6 +2078,26 @@ index 48e2b6b..7b2eaa6 100644
              // Drift a few pixels each minute so nothing sits still on the panel.
              corner.animate().translationX(((Math.random() - 0.5) * dp(24)).toFloat())
                  .translationY(((Math.random() - 0.5) * dp(16)).toFloat()).setDuration(3000).start()
+diff --git a/app/src/main/java/com/getisolated/canvasos/Prefs.kt b/app/src/main/java/com/getisolated/canvasos/Prefs.kt
+index f1b4b2b..7221204 100644
+--- a/app/src/main/java/com/getisolated/canvasos/Prefs.kt
++++ b/app/src/main/java/com/getisolated/canvasos/Prefs.kt
+@@ -105,6 +105,15 @@ class Prefs(ctx: Context) {
+         get() = sp.getBoolean("adb_ok", false)
+         set(v) = sp.edit().putBoolean("adb_ok", v).apply()
+ 
++    /**
++     * "Later" on the local-debugging sheet. Upstream forgot to remember it, so the sheet came
++     * back on every launch — and on firmware that never shows the authorization window (Amazon's
++     * Fire OS closes the local adb socket instead), it could never be dismissed at all.
++     */
++    var debugPromptDismissed: Boolean
++        get() = sp.getBoolean("debug_prompt_dismissed", false)
++        set(v) = sp.edit().putBoolean("debug_prompt_dismissed", v).apply()
++
+     var lastClean: String
+         get() = sp.getString("last_clean", "")!!
+         set(v) = sp.edit().putString("last_clean", v).apply()
 diff --git a/app/src/main/java/com/getisolated/canvasos/Profiles.kt b/app/src/main/java/com/getisolated/canvasos/Profiles.kt
 index 5aea872..e342f29 100644
 --- a/app/src/main/java/com/getisolated/canvasos/Profiles.kt
