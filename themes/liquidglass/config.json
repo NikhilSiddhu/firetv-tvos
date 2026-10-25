@@ -1,0 +1,108 @@
+{
+  "_comment": "Liquid Glass, the tvOS 26/27 look: five apps in a frosted dock, two rows below, a big app name top-left, and each app's own cinematic photo behind the glass. No rotating wallpaper: the photo backdrop replaces it, which keeps this Stick's 1 GB of RAM for what you look at.",
+  "dock_apps": [
+    "com.netflix.ninja",
+    "com.amazon.firebat",
+    "in.startv.hotstar",
+    "com.onemainstream.sonyliv.android",
+    "org.smarttube.stable"
+  ],
+  "fill_dock": false,
+  "columns": 5,
+  "rows_below_dock": 1,
+  "dock_title": true,
+  "dock_band": true,
+  "dock_glass": true,
+  "dock_opacity": 55,
+  "dock_even_padding": true,
+  "glass_style": "halo",
+  "top_menu": true,
+  "show_inputs_pill": true,
+  "show_network_pill": false,
+  "reorder_button": false,
+  "library_button": false,
+  "app_glow": false,
+  "ambient_glow": false,
+  "focus_overshoot": false,
+  "advanced_effects": false,
+  "animations": true,
+  "reduced_motion": false,
+  "cinematic_home": true,
+  "cinematic_dots": true,
+  "cinematic_art": 100,
+  "cinematic_scrim": 62,
+  "cinematic_idle_seconds": 20,
+  "cinematic_white_focus": true,
+  "wallpaper": false,
+  "wallpaper_rotation_minutes": 0,
+  "wallpaper_dim": 30,
+  "wallpaper_moods": {
+    "morning": [
+      "morning.jpg"
+    ],
+    "evening": [
+      "evening.jpg"
+    ],
+    "night": [
+      "night.jpg"
+    ]
+  },
+  "fade_rows": true,
+  "sky_intensity": 0,
+  "background_color": "#000000",
+  "icon_only_buttons": true,
+  "show_network_pill": true,
+  "always_show_names": false,
+  "uniform_tiles": false,
+  "show_stats": false,
+  "app_library": true,
+  "app_library_selection": true,
+  "library_button": true,
+  "tile_menu": true,
+  "reorder_button": true,
+  "launcher_settings_button": true,
+  "library_apps": [
+    "com.firetv.settings",
+    "com.amazon.venezia",
+    "com.aurora.store",
+    "org.fdroid.fdroid",
+    "org.videolan.vlc"
+  ],
+  "app_labels": [
+    "com.amazon.venezia=Appstore",
+    "com.aurora.store=Aurora Store",
+    "org.fdroid.fdroid=F-Droid",
+    "org.videolan.vlc=VLC",
+    "com.firetv.settings=Settings",
+    "org.smarttube.stable=YouTube",
+    "in.startv.hotstar=JioHotstar",
+    "com.onemainstream.sonyliv.android=SonyLIV",
+    "com.apple.atve.amazon.appletv=Apple TV",
+    "com.amazon.firetv.youtube=YouTube (Amazon)"
+  ],
+  "show_greeting": false,
+  "greeting_name": "",
+  "header_white": true,
+  "date_below_clock": true,
+  "home_idle_clock_minutes": 10,
+  "clock_wallpaper": true,
+  "clock_wallpaper_dim": 60,
+  "dock_row": true,
+  "app_banners": [
+    "org.smarttube.stable=banner_youtube",
+    "com.onemainstream.sonyliv.android=banner_sonyliv",
+    "com.netflix.ninja=banner_netflix",
+    "com.amazon.firebat=banner_prime",
+    "in.startv.hotstar=banner_hotstar"
+  ],
+  "app_backdrops": [
+    "com.netflix.ninja=backdrop_netflix",
+    "com.amazon.firebat=backdrop_prime",
+    "in.startv.hotstar=backdrop_hotstar",
+    "com.onemainstream.sonyliv.android=backdrop_sonyliv",
+    "org.smarttube.stable=backdrop_youtube"
+  ],
+  "hidden_apps": [
+    "com.amazon.firetv.youtube"
+  ]
+}
