@@ -20,3 +20,6 @@ local.properties
 
 # Local device address (never commit)
 local.env
+
+# Local safety copies of removed tvOS experiments (not for publishing)
+/backup/
