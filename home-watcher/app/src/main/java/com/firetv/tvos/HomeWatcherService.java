@@ -4,9 +4,12 @@ import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
@@ -20,6 +23,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 
 /**
  * HomeWatcherService - the Fire OS HOME redirect.
@@ -100,12 +104,45 @@ public class HomeWatcherService extends AccessibilityService {
     /** The running service, so LaunchReceiver can lift the cover after a launch. */
     private static HomeWatcherService instance;
 
+    /**
+     * Updating the launcher closes it, and Fire OS falls back to Amazon's home while the package is
+     * being replaced: the redirect skips then (target not installed) and no window event follows.
+     * Once the new version is in, put it back in front, but only if Amazon's home is what shows.
+     */
+    private final BroadcastReceiver packageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context c, Intent i) {
+            Uri data = i.getData();
+            if (data == null || !TARGET_PACKAGE.equals(data.getSchemeSpecificPart())) return;
+            refreshTargetInstalled();
+            mainHandler.postDelayed(() -> {
+                if (ready() && cover == null && amazonHomeInFront()) {
+                    lastLaunchAt = SystemClock.uptimeMillis();
+                    Log.i(TAG, "launcher updated over Amazon's home; redirecting");
+                    redirect();
+                }
+            }, 1500);
+        }
+    };
+
+    private boolean amazonHomeInFront() {
+        AccessibilityNodeInfo root = getRootInActiveWindow();
+        if (root == null) return false;
+        CharSequence pkg = root.getPackageName();
+        return pkg != null && isWatched(pkg.toString());
+    }
+
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
         refreshTargetInstalled();
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         instance = this;
+
+        IntentFilter pf = new IntentFilter(Intent.ACTION_PACKAGE_REPLACED);
+        pf.addAction(Intent.ACTION_PACKAGE_ADDED);
+        pf.addDataScheme("package");
+        registerReceiver(packageReceiver, pf);
 
         AccessibilityServiceInfo info = getServiceInfo();
         if (info != null) {
@@ -122,6 +159,7 @@ public class HomeWatcherService extends AccessibilityService {
 
     @Override
     public void onDestroy() {
+        try { unregisterReceiver(packageReceiver); } catch (IllegalArgumentException ignored) { /* never registered */ }
         hideCover();
         if (instance == this) instance = null;
         super.onDestroy();
